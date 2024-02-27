@@ -22,14 +22,14 @@ exports.register = (req, res) => {
       return res.render("register", {message: "Passwords do not match"});
     } 
 
-    let hashedPwd = await bcrypt.hash(password, 8);
+  let hashedPwd = await bcrypt.hash(password, 8);
     
     db.query('INSERT INTO users SET ?', 
     { name: name, email: email, password: hashedPwd }, (error, results) => {
       if (error) {
         console.log(error);
       } else {
-        return res.render("registrationSuccess");
+        return res.redirect("index");
       }
     })
   });

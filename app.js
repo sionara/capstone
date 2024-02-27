@@ -1,5 +1,7 @@
 const express = require("express");
 const path = require("path");
+const parser = require("cookie-parser");
+const sessions = require("express-session");
 
 const app = express();
 const port = process.env.PORT || "3000";
@@ -15,11 +17,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//SESSIONS MUST COME BEFORE ROUTER OR MIDDLEWARE WILL NOT BE CALLED
+const oneDay = 1000 * 60 * 60 * 24
+
+app.use(sessions({
+  secret: "thisismysecretkey",
+  saveUninitialized: true,
+  cookie: { maxAge: oneDay },
+  resave: false
+}));
+
+app.use(parser());
+
+var session;
+
 //PAGE ROUTES
 const router = require("./routes/pages");
-const authRouter = require("./routes/auth");
 app.use("/", router);
+
+const authRouter = require("./routes/auth");
 app.use("/auth", authRouter);
+
+const loginRouter = require("./routes/login");
+app.use("/login", loginRouter);
 
 app.listen(port, () => {
   console.log(`Server started in ${port}`);
