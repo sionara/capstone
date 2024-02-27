@@ -1,0 +1,22 @@
+extends common/layout 
+
+block header-content 
+  nav 
+    h4 RockPaperScissors 
+    ul
+      li
+        a(href="/") Home  
+      li
+        a(href="/login") Login 
+      li
+        a(href="/register") Register
+
+block main-content 
+  .container.mt-4 
+    .jumbotron 
+      h1.display-4 Welcome to Online Rock-Paper-Scissors! 
+      p.lead Register now to play with others and establish rockpaperscissor dominance 
+      hr.my-4
+      p This is Sion Lee's Capstone project. To see more of my work, click below to check out my other work.
+      p.lead 
+        a(href="//github.com/sionara/" role="button").btn.btn-primary.btn-lg Learn More

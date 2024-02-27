@@ -1,0 +1,16 @@
+extends common/layout 
+
+block main-content 
+
+  .container 
+    
+    form(method="GET" action="/")
+      div.md-3 
+        label(for="email" class="form-label") email:
+        input(type="text" class="form-control" id="email" name="email")
+      div.md-3 
+        label(for="password" class="form-label") Password:
+        input(type="password" class="form-control" id="password" name="password")
+      
+      button(type="submit" class="btn btn-primary" name="login") Login
+      

@@ -1,0 +1,23 @@
+extends common/layout 
+
+block main-content 
+
+  .container 
+    form(method="POST" action="/auth/register")
+      div.error-message #{message}
+
+      div.md-3 
+        label(for="name" class="form-label") Name:
+        input(type="text" class="form-control" id="name" name="name")
+      div.md-3 
+        label(for="email" class="form-label") email:
+        input(type="text" class="form-control" id="email" name="email")
+      div.md-3 
+        label(for="password" class="form-label") Password:
+        input(type="password" class="form-control" id="password" name="password")
+      div.md-3 
+        label(for="confirmPwd" class="form-label") Confirm Password:
+        input(type="password" class="form-control" id="confirmPwd" name="confirmPwd")
+      
+      button(type="submit" class="btn btn-primary" name="login") Register
+      
