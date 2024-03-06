@@ -1,8 +1,6 @@
 # capstone-online rock paper scissor.
 Online rock paper scissor game.
 
-## DEMO TBA
-
 Implementing a real-time, web-based game that simulates rock-paper-scissors. Users can create accounts and be able to check their match history
 
 NOTE:
